@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: my-flask-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 5000
+  nodePort: 30007  # add this line for explicit nodePort, so the service is always exposed on 30007
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 64Mi
